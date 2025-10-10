@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -21,31 +21,33 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: white;
+            background: #1f1f1f;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(212, 175, 55, 0.1);
             padding: 40px;
+            border: 1px solid #333;
         }
         
         h1 {
             text-align: center;
-            color: #667eea;
+            color: #d4af37;
             margin-bottom: 10px;
             font-size: 2.5em;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
         
         .subtitle {
             text-align: center;
-            color: #666;
+            color: #999;
             margin-bottom: 30px;
         }
         
         .semester-section {
-            background: #f8f9fa;
+            background: #2a2a2a;
             padding: 25px;
             border-radius: 15px;
             margin-bottom: 20px;
-            border: 2px solid #e9ecef;
+            border: 2px solid #3a3a3a;
         }
         
         .semester-header {
@@ -57,7 +59,7 @@
         
         .semester-title {
             font-size: 1.3em;
-            color: #495057;
+            color: #d4af37;
             font-weight: bold;
         }
         
@@ -72,24 +74,27 @@
             grid-template-columns: 2fr 1fr 1fr auto;
             gap: 10px;
             align-items: center;
-            background: white;
+            background: #1a1a1a;
             padding: 15px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            border: 1px solid #333;
         }
         
         input, select {
             padding: 10px;
-            border: 2px solid #dee2e6;
+            border: 2px solid #3a3a3a;
             border-radius: 8px;
             font-size: 1em;
             transition: all 0.3s;
+            background: #2a2a2a;
+            color: #e0e0e0;
         }
         
         input:focus, select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
         
         .btn {
@@ -103,29 +108,30 @@
         }
         
         .btn-add {
-            background: #28a745;
-            color: white;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #1a1a1a;
             margin-top: 15px;
         }
         
         .btn-add:hover {
-            background: #218838;
+            background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .btn-remove {
-            background: #dc3545;
+            background: #8b0000;
             color: white;
             padding: 8px 15px;
         }
         
         .btn-remove:hover {
-            background: #c82333;
+            background: #a00000;
         }
         
         .btn-semester {
-            background: #667eea;
-            color: white;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #1a1a1a;
             width: 100%;
             padding: 15px;
             font-size: 1.1em;
@@ -133,8 +139,9 @@
         }
         
         .btn-semester:hover {
-            background: #5568d3;
+            background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .results {
@@ -145,18 +152,19 @@
         }
         
         .result-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #1a1a1a;
             padding: 25px;
             border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .result-label {
             font-size: 0.9em;
-            opacity: 0.9;
+            opacity: 0.8;
             margin-bottom: 10px;
+            font-weight: bold;
         }
         
         .result-value {
@@ -165,14 +173,15 @@
         }
         
         .grade-scale {
-            background: #e7f3ff;
+            background: #2a2a2a;
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
+            border: 2px solid #3a3a3a;
         }
         
         .grade-scale h3 {
-            color: #667eea;
+            color: #d4af37;
             margin-bottom: 15px;
         }
         
@@ -183,21 +192,23 @@
         }
         
         .grade-item {
-            background: white;
+            background: #1a1a1a;
             padding: 10px;
             border-radius: 8px;
             text-align: center;
+            color: #e0e0e0;
+            border: 1px solid #3a3a3a;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎓 คำนวณ GPA และ GPAX</h1>
+        <h1> คำนวณ GPA และ GPAX</h1>
         <p class="subtitle">ระบบคำนวณเกรดเฉลี่ยตามระบบการศึกษาไทย</p>
         
         <div id="semesters"></div>
         
-        <button class="btn btn-semester" onclick="addSemester()">➕ เพิ่มเทอม</button>
+        <button class="btn btn-semester" onclick="addSemester()"> เพิ่มเทอม</button>
         
         <div class="results">
             <div class="result-card">
@@ -207,7 +218,7 @@
         </div>
         
         <div class="grade-scale">
-            <h3>📊 ตารางเกรด</h3>
+            <h3>ตารางเกรด</h3>
             <div class="grade-table">
                 <div class="grade-item"><strong>4.0</strong><br>A</div>
                 <div class="grade-item"><strong>3.5</strong><br>B+</div>
@@ -290,7 +301,7 @@
                             </select>
                             <button class="btn btn-remove" 
                                 onclick="removeSubject(${semester.id}, ${subject.id})">
-                                🗑️
+                                
                             </button>
                         </div>
                     `;
@@ -298,10 +309,10 @@
 
                 semesterDiv.innerHTML = `
                     <div class="semester-header">
-                        <div class="semester-title">📚 เทอมที่ ${semester.id}</div>
+                        <div class="semester-title"> เทอมที่ ${semester.id}</div>
                         <div>
-                            <span style="font-size: 1.1em; margin-right: 15px;">
-                                GPA: <strong id="gpa-${semester.id}">0.00</strong>
+                            <span style="font-size: 1.1em; margin-right: 15px; color: #e0e0e0;">
+                                GPA: <strong style="color: #d4af37;" id="gpa-${semester.id}">0.00</strong>
                             </span>
                             <button class="btn btn-remove" onclick="removeSemester(${semester.id})">
                                 ลบเทอม
@@ -312,7 +323,7 @@
                         ${subjectsHTML}
                     </div>
                     <button class="btn btn-add" onclick="addSubject(${semester.id})">
-                        ➕ เพิ่มวิชา
+                         เพิ่มวิชา
                     </button>
                 `;
                 
