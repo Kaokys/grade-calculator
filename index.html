@@ -203,12 +203,12 @@
 </head>
 <body>
     <div class="container">
-        <h1> คำนวณ GPA และ GPAX</h1>
+        <h1>🎓 คำนวณ GPA และ GPAX</h1>
         <p class="subtitle">ระบบคำนวณเกรดเฉลี่ยตามระบบการศึกษาไทย</p>
         
         <div id="semesters"></div>
         
-        <button class="btn btn-semester" onclick="addSemester()"> เพิ่มเทอม</button>
+        <button class="btn btn-semester" onclick="addSemester()">➕ เพิ่มเทอม</button>
         
         <div class="results">
             <div class="result-card">
@@ -218,7 +218,7 @@
         </div>
         
         <div class="grade-scale">
-            <h3>ตารางเกรด</h3>
+            <h3>📊 ตารางเกรด</h3>
             <div class="grade-table">
                 <div class="grade-item"><strong>4.0</strong><br>A</div>
                 <div class="grade-item"><strong>3.5</strong><br>B+</div>
@@ -246,25 +246,42 @@
             renderSemesters();
         }
 
+        function saveData() {
+            semesters.forEach(semester => {
+                semester.subjects.forEach(subject => {
+                    const nameInput = document.getElementById(`name-${semester.id}-${subject.id}`);
+                    const creditInput = document.getElementById(`credit-${semester.id}-${subject.id}`);
+                    const gradeSelect = document.getElementById(`grade-${semester.id}-${subject.id}`);
+                    
+                    if (nameInput) subject.name = nameInput.value;
+                    if (creditInput) subject.credit = creditInput.value;
+                    if (gradeSelect) subject.grade = gradeSelect.value;
+                });
+            });
+        }
+
         function addSubject(semesterId) {
+            saveData();
             const semester = semesters.find(s => s.id === semesterId);
             const newId = semester.subjects.length > 0 ? 
                 Math.max(...semester.subjects.map(s => s.id)) + 1 : 1;
-            semester.subjects.push({ id: newId });
+            semester.subjects.push({ id: newId, name: '', credit: '', grade: '' });
             renderSemesters();
         }
 
         function removeSubject(semesterId, subjectId) {
+            saveData();
             const semester = semesters.find(s => s.id === semesterId);
             semester.subjects = semester.subjects.filter(s => s.id !== subjectId);
             if (semester.subjects.length === 0) {
-                semester.subjects.push({ id: 1 });
+                semester.subjects.push({ id: 1, name: '', credit: '', grade: '' });
             }
             renderSemesters();
             calculateAll();
         }
 
         function removeSemester(semesterId) {
+            saveData();
             semesters = semesters.filter(s => s.id !== semesterId);
             renderSemesters();
             calculateAll();
@@ -301,7 +318,7 @@
                             </select>
                             <button class="btn btn-remove" 
                                 onclick="removeSubject(${semester.id}, ${subject.id})">
-                                
+                                🗑️
                             </button>
                         </div>
                     `;
@@ -309,7 +326,7 @@
 
                 semesterDiv.innerHTML = `
                     <div class="semester-header">
-                        <div class="semester-title"> เทอมที่ ${semester.id}</div>
+                        <div class="semester-title">📚 เทอมที่ ${semester.id}</div>
                         <div>
                             <span style="font-size: 1.1em; margin-right: 15px; color: #e0e0e0;">
                                 GPA: <strong style="color: #d4af37;" id="gpa-${semester.id}">0.00</strong>
@@ -323,7 +340,7 @@
                         ${subjectsHTML}
                     </div>
                     <button class="btn btn-add" onclick="addSubject(${semester.id})">
-                         เพิ่มวิชา
+                        ➕ เพิ่มวิชา
                     </button>
                 `;
                 
